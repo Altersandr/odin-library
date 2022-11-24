@@ -8,13 +8,28 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-
     <header id="header">
-        <div id="odin-library">Odin's Library</div>
-        <p id="how-many">How many books have you read?</p>
+            <div id="odin-library">Odin's Library</div>
+            <p id="how-many">How many books have you read?</p>
+            <div class="formcontainer">
+                <p class="formtitle">Add to library</p>
+                <form action="/index.html">
+                    <label for="bookname">Name</label>
+                    <input type="text" id="bookname" name="bookname">
+                    <label for="authorname">Author</label>
+                    <input type="text" id="authorname" name="authorname">
+                    <label for="pages">Pages</label>
+                    <input type="text" id="pages" name="pages">
+                    <label for="cover">Cover link</label>
+                    <input type="text" id="cover" name="cover">
+                    <button type="submit" id="add">Add book</button>
+                </form>
+        </div>
+        </div>
     </header>
 
-    <main id="main-container"></main>
+    <main id="main-container">
+    </main>
 
     <footer id="footer">
         <div id = 'author'>Oleksandr Tsurkan</div>
@@ -22,6 +37,8 @@
             <img src= "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt = 'Altersandr' width="30px" class="github">
     </footer>
 
-    <script src="/script.js"></script>
+    <script src="/script.js">
+        
+    </script>
 </body>
 </html>

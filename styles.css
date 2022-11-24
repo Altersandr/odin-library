@@ -19,18 +19,30 @@ body{
 }
 
 header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
     border-bottom: none;
     border: 1px solid gray;
     box-sizing: border-box;
     width: 65%;
     height: 25%;
+
 }
 
 #main-container{
+    padding: 2em;
     width: 65%;
     height: 75%;
     border: 1px solid gray;
     box-sizing: border-box;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 2em;
+    align-content: center;
+    
 }
 
 footer{
@@ -40,17 +52,16 @@ footer{
 }
 
 #odin-library{
-    padding-top: 1em;
     text-align: center;
     color: white;
     font-size: 3rem;
 }
 
 #how-many{
-    padding-top: 1em;
+    
     font-family: "Ubuntu";
     font-style: italic;
-    font-size: 2rem;
+    font-size: 1.6rem;
     text-align: center;
     color: white;
 }
@@ -58,7 +69,7 @@ footer{
 #footer{
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 5rem;
     display: flex;
     color: white;
     padding: 0;
@@ -74,5 +85,96 @@ footer{
 }
 
 footer img{
-    filter:brightness(2)
+    filter:brightness(5);
+    height: 1.5em;
 }
+
+.author{
+    background-color: rgb(240, 248, 255, .5);
+    color: black;
+    width: 98.5%;
+    position: absolute;
+    top: .5em;
+    border-radius: 8px 8px 0 0;
+    padding-left: .2em;
+}
+
+#main-container>div{
+    transition: 0.4s ease;
+    position: relative;
+    background: rgb(0, 119, 255, 0.5);
+    border-radius: 20px;
+}
+
+#main-container>div:hover{
+    position: relative;
+    background: rgb(0, 119, 255);
+    border-radius: 20px;
+
+}
+
+.name{
+    background-color: rgb(240, 248, 255, .4);
+    color: rgb(0, 0, 0);
+    width: 98.5%;
+    position: absolute;
+    bottom: .5em;
+    border-radius: 0 0 8px 8px;
+    padding-left: .2em;
+}
+.pages{
+    position: absolute;
+    right: .5em;
+    top: .9em;
+    color: black;
+    font-size: .8em;
+}
+
+#controls{
+    height: 50px;
+    position: absolute;
+    top: 40%;
+    left: 65%;
+    filter: blur(0);
+    display: none;
+    z-index: 2;
+}
+
+button{
+    width: 6em;
+    height: 2em;
+    border-radius: 15px;
+    background-color: orange;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    font-style: inherit;
+    filter: blur(0);
+}
+
+#main-container.book#controls button{
+    background-color: blue;
+}
+
+form,
+.formtitle{
+    color: white;
+    font-size: .85rem;
+}
+input{
+    background-color: gray;
+    font-size: inherit;
+    font-family: inherit;
+    color: white;
+}
+
+input[type=file]{
+    width: 5.5rem;
+}
+
+.formtitle{
+    color: orange;
+    margin-bottom: .5em;
+}
+  
+  
