@@ -1,37 +1,32 @@
 let myLibrary = [
-//     {
-//     name: "At the Mountains of Madness",
-//     author: "H.P. Lovecraft"
-// },{
-//     name: "Sherlock Holmes",
-//     author: "Arthur Conan Doyle"
-// },{
-//     name: "Lords of the Rings",
-//     author: "J.R.R. Tolkien"
-// }
+
 ];
 
-
-
-function Book(name, author, pages, cover){
+function Book(name, author, pages, cover, status){
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.cover = cover;
+    // this.status = status;
     return this
 }
+
+function createBook(){
+        const title = document.getElementById('bookname').value;
+        const author = document.getElementById('authorname').value;
+        const pages = document.getElementById('pages').value;
+        const cover = document.getElementById('cover').value;
+        return new Book(title, author, pages, cover);  
+}
+
 
 const addBook = document.getElementById('add');
 addBook.addEventListener('click', addBookToLibrary);
 
-function addBookToLibrary(e){
-        e.preventDefault();
+function addBookToLibrary(){
+        event.preventDefault();
         
-        const inputName = document.getElementById('bookname').value;
-        const inputAuthor = document.getElementById('authorname').value;
-        const inputPages = document.getElementById('pages').value;
-        const inputCover = document.getElementById('cover').value;
-        const newBook = new Book(inputName, inputAuthor, inputPages, inputCover);
+        const newBook = createBook();
         myLibrary.push(newBook)
         
         const container = document.getElementById('main-container');
@@ -39,6 +34,8 @@ function addBookToLibrary(e){
         
         myLibrary.forEach(book=>{
         let bookentry = document.createElement('div');
+        bookentry.style.backgroundImage = `url(${book.cover})`;
+        bookentry.style.backgroundSize = '100%';
         bookentry.classList = "book";
         let author = document.createElement('div');
         author.classList = "author";
@@ -48,9 +45,8 @@ function addBookToLibrary(e){
         name.textContent = book.name;
         let pages = document.createElement("div");
         pages.classList = "pages";
-        pages.textContent = book.pages + " pages";
-        // console.log(bookentry);
-        bookentry.style.backgroundImage = `url(${inputCover})`;
+        pages.textContent = book.pages;
+
         
         bookentry.dataset.id = myLibrary.indexOf(book);
         bookentry.appendChild(author);
@@ -62,36 +58,40 @@ function addBookToLibrary(e){
         controls.id = "controls";
         let readBtn = document.createElement('button');
         readBtn.textContent = 'Read';
+        readBtn.className = 'readBtn';
         let deleteBtn = document.createElement('button');
         deleteBtn.textContent = 'Delete';
         deleteBtn.className = 'deleteBtn';
         deleteBtn.dataset.id = myLibrary.indexOf(book);
-        // console.log(deleteBtn.dataset.id)
+
+        deleteBtn.addEventListener('click', ()=>{
+            const mainContainer = document.getElementById('main-container');
+            let btnId = deleteBtn.dataset.id;
+            myLibrary.splice(btnId, 1);
+            mainContainer.removeChild(deleteBtn.parentElement.parentElement)
+        })
+
+        readBtn.addEventListener('click', (e)=>{
+            if(e.target.className === "readBtn"){
+            e.target.className = "unreadBtn";
+            e.target.textContent = "Unread"
+        }else{
+            e.target.className = "readBtn";
+            e.target.textContent = "Read"
+        }
+        })
+
         controls.appendChild(readBtn);
         controls.appendChild(deleteBtn);
         bookentry.appendChild(controls);
+        
         bookentry.addEventListener('mouseover', (e)=>{
-            const deleteBtns = document.querySelectorAll('.deleteBtn');
-            deleteBtns.forEach(btn =>{
-            // console.log(deleteBtns)
-            btn.addEventListener('click', deleteBook(btn))
-})
-            
-                controls.style.display = "block";
+            controls.style.display = "block"; 
             })
-            bookentry.addEventListener('mouseout', (e)=>{
-                controls.style.display = "none";
+        bookentry.addEventListener('mouseout', (e)=>{
+            controls.style.display = "none";
             })
         }
         )
 
     }
-
-function deleteBook(button){
-    const id = button.dataset.id;
-    myLibrary.splice(id, 1)
-    console.log(id)
-    console.log(myLibrary)
-};
-
-
