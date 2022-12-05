@@ -2,13 +2,15 @@ let myLibrary = [
 
 ];
 
-function Book(name, author, pages, cover, status){
+
+class Book {
+    constructor(name, author, pages, cover){
+    
     this.name = name;
     this.author = author;
     this.pages = pages;
     this.cover = cover;
-    // this.status = status;
-    return this
+    }
 }
 
 function createBook(){
