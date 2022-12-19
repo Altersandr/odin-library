@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header id="header">
@@ -13,13 +13,13 @@
             <p id="how-many">How many books have you read?</p>
             <div class="formcontainer">
                 <p class="formtitle">Add to library</p>
-                <form action="/index.html">
+                <form action="/index.html" >
                     <label for="bookname">Name</label>
-                    <input type="text" id="bookname" name="bookname">
+                    <input type="text" id="bookname" name="bookname" required>
                     <label for="authorname">Author</label>
-                    <input type="text" id="authorname" name="authorname">
+                    <input type="text" id="authorname" name="authorname" required>
                     <label for="pages">Pages</label>
-                    <input type="tel" id="pages" name="pages">
+                    <input type="tel" id="pages" name="pages" required>
                     <label for="cover">Cover</label>
                     <input type="text" id="cover" name="cover" placeholder="https://example.com">
                     <button type="submit" id="add">Add book</button>
@@ -32,12 +32,12 @@
     </main>
 
     <footer id="footer">
-        <div id = 'author'>Oleksandr Tsurkan</div>
+        <div id = 'author'>Altersandr</div>
             <a href="https://github.com/Altersandr">
             <img src= "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt = 'Altersandr' width="30px" class="github">
     </footer>
 
-    <script src="/script.js">
+    <script src="script.js">
         
     </script>
 </body>

@@ -5,7 +5,6 @@ let myLibrary = [
 
 class Book {
     constructor(name, author, pages, cover){
-    
     this.name = name;
     this.author = author;
     this.pages = pages;
@@ -26,11 +25,10 @@ const addBook = document.getElementById('add');
 addBook.addEventListener('click', addBookToLibrary);
 
 function addBookToLibrary(){
-        event.preventDefault();
-        
         const newBook = createBook();
+        if(newBook.name ===''||newBook.author===''||newBook.pages===""||newBook.cover==="")return
+        event.preventDefault()
         myLibrary.push(newBook)
-        
         const container = document.getElementById('main-container');
         container.innerHTML = "";
         
@@ -45,6 +43,7 @@ function addBookToLibrary(){
         let name = document.createElement('div');
         name.classList = "name";
         name.textContent = book.name;
+
         let pages = document.createElement("div");
         pages.classList = "pages";
         pages.textContent = book.pages;
